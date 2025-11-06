@@ -42,7 +42,9 @@ jobs:
            -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml
            -Dsonar.java.binaries=target/test-classes/com/visualpathit/account
 
-
+      - name: wait for sonarcloud analysis
+        run: sleep 30
+        
       - name: SonarQube Quality Gate checkstyle
         id: sonarqube-quality-gate-check
         uses: SonarSource/sonarqube-quality-gate-action@v1.1.0
